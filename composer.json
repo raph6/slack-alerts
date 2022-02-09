@@ -1,0 +1,23 @@
+{
+    "name": "raph6/slack-alerts",
+    "description": "Slack Alerts",
+    "keywords": ["slack", "alerts", "notifications"],
+    "type": "library",
+    "authors": [
+        {
+            "name": "raph",
+            "email": "contact@raph.cc"
+        }
+    ],
+    "require": {
+        "php": ">=7.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.5"
+    },
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    }
+}
