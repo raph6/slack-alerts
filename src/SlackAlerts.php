@@ -18,6 +18,9 @@ class SlackAlerts
      */
     private $text;
 
+    /**
+     * @param mixed $webhookUrls
+     */
     public function __construct($webhookUrls = null)
     {
         // webhook urls
@@ -31,7 +34,6 @@ class SlackAlerts
 
         // curl init
         $this->_ch = curl_init();
-        curl_setopt($this->_ch, CURLOPT_HTTPHEADER, ['Content-type: application/json']);
     }
 
     /**
@@ -67,6 +69,8 @@ class SlackAlerts
             'type' => 'mrkdown',
             'text' => $this->text,
         ];
+
+        curl_setopt($this->_ch, CURLOPT_HTTPHEADER, ['Content-type: application/json']);
         curl_setopt($this->_ch, CURLOPT_POSTFIELDS, json_encode($data));
         curl_setopt($this->_ch, CURLOPT_POST, true);
         curl_setopt($this->_ch, CURLOPT_URL, $this->webhookUrls[$to]);
