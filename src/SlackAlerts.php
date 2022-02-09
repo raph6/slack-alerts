@@ -40,11 +40,15 @@ class SlackAlerts
      */
     public function setWebhookUrl($webhookUrls)
     {
-        if (!is_array($webhookUrls)) {
+        if (is_string($webhookUrls)) {
             $this->webhookUrls = ['default' => $webhookUrls];
-        } else {
+        } 
+        
+        if (is_array($webhookUrls)) {
             $this->webhookUrls = $webhookUrls;
         }
+
+        return $this;
     }
 
     /**
