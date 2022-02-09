@@ -1,4 +1,13 @@
+```
+composer require raph6/slack-alerts
+```
+
 ```php
+
+use raph6\SlackAlerts\SlackAlerts;
+
+// ---
+
 $slack1 = new SlackAlerts('https://hooks.slack.com/services/xxxxxx/yyyyyyy/zzzzzz');
 $slack1->setText('test');
 $slack1->send();
