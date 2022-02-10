@@ -34,6 +34,7 @@ class SlackAlerts
 
         // curl init
         $this->_ch = curl_init();
+        curl_setopt($this->_ch, CURLOPT_RETURNTRANSFER, true);
     }
 
     /**
@@ -74,7 +75,9 @@ class SlackAlerts
         curl_setopt($this->_ch, CURLOPT_POSTFIELDS, json_encode($data));
         curl_setopt($this->_ch, CURLOPT_POST, true);
         curl_setopt($this->_ch, CURLOPT_URL, $this->webhookUrls[$to]);
-        curl_exec($this->_ch);
-        curl_close($this->_ch); 
+        $output = curl_exec($this->_ch);
+        curl_close($this->_ch);
+
+        return $output;
     }
 }
